@@ -1,7 +1,7 @@
 const DAY_ORDER = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
 const STATUS_LABEL = { onair: "连载中", upcoming: "待播", ended: "已完结" };
 const TYPE_LABEL = { tv: "剧集", movie: "电影" };
-const TMDB_IMG = "https://image.tmdb.org/t/p/w342";
+const TMDB_IMG = "https://image.tmdb.org/t/p/";
 
 function escapeHtml(s) {
   return String(s ?? "").replace(/[&<>"']/g, (c) => ({
@@ -9,9 +9,9 @@ function escapeHtml(s) {
   }[c]));
 }
 
-function posterUrl(p) {
+function posterUrl(p, size) {
   if (!p) return "";
-  return /^https?:\/\//.test(p) ? p : TMDB_IMG + p;
+  return /^https?:\/\//.test(p) ? p : TMDB_IMG + (size || "w342") + p;
 }
 
 function badge(status) {
@@ -66,7 +66,7 @@ function renderCarousel(shows) {
   el.innerHTML = `
     <div class="carousel-track">
       ${sorted.map((s, i) => {
-        const img = posterUrl(s.poster);
+        const img = posterUrl(s.poster, "w500");
         const target = s.type === "movie" ? "upcoming.html" : "schedule.html";
         return `
         <a class="carousel-slide ${i === 0 ? "active" : ""}" href="${target}">
