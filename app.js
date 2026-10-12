@@ -60,10 +60,9 @@ function renderCarousel(shows) {
     el.innerHTML = `<div class="card"><span class="show-meta">暂无轮播内容</span></div>`;
     return;
   }
-  const sorted = [...items].sort((a, b) => {
-    const ka = a.type === "movie" ? 0 : 1; // 电影优先放在轮播里
-    return ka - kb;
-  });
+  const sorted = [...items].sort(
+    (a, b) => (a.type === "movie" ? 0 : 1) - (b.type === "movie" ? 0 : 1) // 电影优先放在轮播里
+  );
   el.innerHTML = `
     <div class="carousel-track">
       ${sorted.map((s, i) => {
