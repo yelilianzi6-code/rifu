@@ -65,9 +65,37 @@
       "time_note": "10月17日起开播，周日凌晨／TVer・ABEMA・FOD",
       "episode_total": 10,
       "source": "https://www.asahi.co.jp/schooltrip/"
+    },
+    {
+      "name": "営業ですから",
+      "jp_name": "営業ですから",
+      "status": "upcoming",
+      "platform": "BSフジ / FOD（独占配信）",
+      "air_day": "周四",
+      "air_time": "深夜0:30",
+      "time_note": "11月5日起开播，周五凌晨／FOD 11月4日先行",
+      "source": "https://www.tvguide.or.jp/news/news-5239157/"
+    },
+    {
+      "name": "席替えしたら、どうやら後ろの男が俺のこと好きらしい",
+      "jp_name": "席替えしたら、どうやら後ろの男が俺のこと好きらしい",
+      "status": "ended",
+      "platform": "FOD（独占配信）／BSフジ",
+      "air_day": "周五",
+      "air_time": "深夜1:00",
+      "time_note": "全8话，FOD 每周三先行配信",
+      "episode_total": 8,
+      "source": "https://www.fujitv.co.jp/fujitv/news/20260673.html"
     }
   ],
   "news": [
+    {
+      "date": "2026-10-11",
+      "type": "new_show",
+      "title": "《営業ですから》官宣定档",
+      "detail": "植村颯太×高橋璃央 W主演，BSフジ 11月5日起每周四深夜0:30 播出，FOD 11月4日先行配信。",
+      "source": "https://www.tvguide.or.jp/news/news-5239157/"
+    },
     {
       "date": "2026-10-08",
       "type": "new_show",
