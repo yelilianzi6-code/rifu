@@ -1,5 +1,6 @@
 const DAY_ORDER = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
 const STATUS_LABEL = { onair: "连载中", upcoming: "待播", ended: "已完结" };
+const TMDB_IMG = "https://image.tmdb.org/t/p/w342";
 
 function escapeHtml(s) {
   return String(s ?? "").replace(/[&<>"']/g, (c) => ({
@@ -86,13 +87,93 @@ function render(data) {
   }
 }
 
+// ---- 评分板块 ----
+function starsHtml(rating) {
+  const n = Math.max(0, Math.min(7, Number(rating) || 0));
+  return `<span class="stars">${"★".repeat(n)}<span class="stars-off">${"☆".repeat(7 - n)}</span></span>`;
+}
+
+function posterUrl(r) {
+  if (!r.poster) return "";
+  return /^https?:\/\//.test(r.poster) ? r.poster : TMDB_IMG + r.poster;
+}
+
+function renderReviews(reviews) {
+  const sorted = [...reviews].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+  const grid = document.getElementById("reviews");
+  if (!sorted.length) {
+    grid.innerHTML = `<div class="card"><span class="show-meta">暂无评分</span></div>`;
+    return;
+  }
+  grid.innerHTML = sorted.map((r, i) => {
+    const img = posterUrl(r);
+    const posterHtml = img
+      ? `<img class="review-poster" src="${escapeHtml(img)}" alt="${escapeHtml(r.name)}" loading="lazy" />`
+      : `<div class="review-poster placeholder">${escapeHtml(r.name.charAt(0))}</div>`;
+    return `
+      <button class="review-card" data-idx="${i}">
+        ${posterHtml}
+        <div class="review-name">${escapeHtml(r.name)}</div>
+        ${starsHtml(r.rating)}
+      </button>`;
+  }).join("");
+
+  grid.querySelectorAll(".review-card").forEach((btn) => {
+    btn.addEventListener("click", () => openModal(sorted[Number(btn.dataset.idx)]));
+  });
+}
+
+let modalEl = null;
+
+function openModal(r) {
+  if (!modalEl) {
+    modalEl = document.createElement("div");
+    modalEl.className = "modal-overlay";
+    modalEl.innerHTML = `
+      <div class="modal-box">
+        <button class="modal-close" aria-label="关闭">×</button>
+        <div class="modal-body"></div>
+      </div>`;
+    document.body.appendChild(modalEl);
+    modalEl.addEventListener("click", (e) => {
+      if (e.target === modalEl || e.target.closest(".modal-close")) closeModal();
+    });
+  }
+
+  const img = posterUrl(r);
+  const meta = [];
+  if (r.jp_name) meta.push(`日文名：${escapeHtml(r.jp_name)}`);
+  if (r.year) meta.push(`播出：${escapeHtml(r.year)}`);
+  if (r.cast) meta.push(`主演：${escapeHtml(r.cast)}`);
+  const metaHtml = meta.length ? `<div class="modal-meta">${meta.join("<br>")}</div>` : "";
+
+  modalEl.querySelector(".modal-body").innerHTML = `
+    ${img ? `<img class="modal-poster" src="${escapeHtml(img)}" alt="">` : ""}
+    <h3 class="modal-title">${escapeHtml(r.name)}</h3>
+    <div class="modal-stars">${starsHtml(r.rating)}</div>
+    <div class="modal-tags">${(r.tags || []).map((t) => escapeHtml(t)).join(" · ")}</div>
+    ${metaHtml}
+    <p class="modal-review">${escapeHtml(r.review || "")}</p>`;
+  modalEl.classList.add("open");
+}
+
+function closeModal() {
+  if (modalEl) modalEl.classList.remove("open");
+}
+
+// ---- 加载 ----
 fetch("data.json")
-  .then((r) => {
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    return r.json();
-  })
+  .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
   .then(render)
   .catch((err) => {
     document.getElementById("schedule").innerHTML =
       `<div class="card"><span class="show-meta">数据加载失败：${escapeHtml(err.message)}</span></div>`;
+  });
+
+fetch("reviews.json")
+  .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then((d) => renderReviews(d.reviews || []))
+  .catch((err) => {
+    document.getElementById("reviews").innerHTML =
+      `<div class="card"><span class="show-meta">评分加载失败：${escapeHtml(err.message)}</span></div>`;
   });
