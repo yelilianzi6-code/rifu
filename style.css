@@ -22,8 +22,44 @@ body {
   line-height: 1.5;
 }
 
+/* 顶部导航 */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+}
+.brand {
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-links { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--ink); background: #f3f4f6; }
+.nav-links a.active { background: var(--accent); color: #fff; font-weight: 600; }
+
 .site-header {
-  padding: 28px 20px 16px;
+  padding: 24px 20px 14px;
   text-align: center;
   background: linear-gradient(135deg, #e0f2fe, #ede9fe);
   border-bottom: 1px solid var(--line);
@@ -34,13 +70,85 @@ body {
 
 main { max-width: 720px; margin: 0 auto; padding: 16px 16px 48px; }
 
-.section { margin-top: 28px; }
+.section { margin-top: 24px; }
 .section-title {
   font-size: 16px;
   margin: 0 0 12px;
   padding-left: 10px;
   border-left: 4px solid var(--accent);
 }
+
+/* 首页轮播 */
+.carousel {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.carousel-track { position: relative; height: 340px; }
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  text-decoration: none;
+}
+.carousel-slide.active { opacity: 1; }
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.carousel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 48px 16px 14px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
+  color: #fff;
+}
+.carousel-title { font-size: 18px; font-weight: 700; }
+.carousel-sub { font-size: 13px; opacity: 0.9; margin-top: 2px; }
+.carousel-dots {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.dot.active { background: #fff; width: 20px; }
+
+/* 首页快速直达 */
+.jump-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.jump-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 14px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: border-color 0.15s;
+}
+.jump-card:hover { border-color: var(--accent); }
+.jump-icon { font-size: 24px; }
+.jump-label { font-weight: 700; font-size: 15px; margin-top: 2px; }
+.jump-sub { color: var(--muted); font-size: 12px; }
 
 /* 日程表 */
 .schedule { display: flex; flex-direction: column; gap: 12px; }
@@ -76,7 +184,43 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 16px 48px; }
 }
 .show-meta { color: var(--muted); font-size: 13px; }
 
-/* 卡片列表（待播/已完结） */
+/* 待播（剧 + 电影） */
+.upcoming-list { display: flex; flex-direction: column; gap: 12px; }
+.upcoming-card {
+  display: flex;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px;
+}
+.upcoming-poster {
+  width: 72px;
+  height: 108px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background: #e5e7eb;
+}
+.upcoming-poster.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  background: linear-gradient(135deg, #dbeafe, #ede9fe);
+}
+.upcoming-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
+  min-width: 0;
+}
+.upcoming-info .show-name { font-size: 15px; }
+
+/* 卡片列表 */
 .card-list { display: flex; flex-direction: column; gap: 10px; }
 .card {
   background: var(--card);
@@ -99,25 +243,7 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 16px 48px; }
 .badge.onair { background: #dcfce7; color: var(--onair); }
 .badge.upcoming { background: #dbeafe; color: var(--upcoming); }
 .badge.ended { background: #f3f4f6; color: var(--ended); }
-
-/* 资讯 */
-.news-feed { display: flex; flex-direction: column; gap: 10px; }
-.news-item {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 12px 14px;
-}
-.news-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 10px;
-}
-.news-title { font-weight: 600; }
-.news-date { color: var(--muted); font-size: 12px; white-space: nowrap; }
-.news-detail { color: var(--muted); font-size: 13px; margin-top: 4px; }
-.news-item a { color: var(--accent); text-decoration: none; font-size: 13px; }
+.badge.typed { background: #ede9fe; color: #7c3aed; }
 
 .site-footer {
   text-align: center;
@@ -126,11 +252,7 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 16px 48px; }
   padding: 20px 16px 32px;
 }
 
-@media (max-width: 480px) {
-  .show-name { width: 100%; }
-}
-
-/* 评分墙 */
+/* 评分墙 / 待看墙 */
 .review-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -174,6 +296,7 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 16px 48px; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.review-year { color: var(--muted); font-size: 12px; margin-top: 2px; }
 .stars { color: #f59e0b; font-size: 12px; }
 .stars-off { color: #d1d5db; }
 
@@ -228,5 +351,8 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 16px 48px; }
 .modal-review { margin: 10px 0 0; font-size: 14px; white-space: pre-wrap; }
 
 @media (max-width: 480px) {
+  .show-name { width: 100%; }
   .review-grid { grid-template-columns: repeat(2, 1fr); }
+  .carousel-track { height: 260px; }
+  .nav-inner { flex-wrap: wrap; justify-content: center; }
 }
