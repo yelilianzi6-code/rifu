@@ -1,0 +1,131 @@
+:root {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: #3b82f6;
+  --onair: #16a34a;
+  --upcoming: #2563eb;
+  --ended: #9ca3af;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.5;
+}
+
+.site-header {
+  padding: 28px 20px 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #e0f2fe, #ede9fe);
+  border-bottom: 1px solid var(--line);
+}
+.site-header h1 { margin: 0; font-size: 24px; }
+.subtitle { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+.updated { margin: 8px 0 0; color: var(--muted); font-size: 12px; }
+
+main { max-width: 720px; margin: 0 auto; padding: 16px 16px 48px; }
+
+.section { margin-top: 28px; }
+.section-title {
+  font-size: 16px;
+  margin: 0 0 12px;
+  padding-left: 10px;
+  border-left: 4px solid var(--accent);
+}
+
+/* 日程表 */
+.schedule { display: flex; flex-direction: column; gap: 12px; }
+.day-group {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.day-label {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #111827;
+}
+.day-empty { color: var(--muted); font-size: 13px; }
+
+.show-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 0;
+  border-top: 1px dashed var(--line);
+  flex-wrap: wrap;
+}
+.day-group .show-row:first-of-type { border-top: none; }
+.show-name { font-weight: 600; }
+.show-time {
+  color: var(--accent);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.show-meta { color: var(--muted); font-size: 13px; }
+
+/* 卡片列表（待播/已完结） */
+.card-list { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.card .show-name { font-size: 15px; }
+.card .show-meta { display: block; margin-top: 2px; }
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+  vertical-align: middle;
+  font-weight: 600;
+}
+.badge.onair { background: #dcfce7; color: var(--onair); }
+.badge.upcoming { background: #dbeafe; color: var(--upcoming); }
+.badge.ended { background: #f3f4f6; color: var(--ended); }
+
+/* 资讯 */
+.news-feed { display: flex; flex-direction: column; gap: 10px; }
+.news-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.news-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.news-title { font-weight: 600; }
+.news-date { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.news-detail { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.news-item a { color: var(--accent); text-decoration: none; font-size: 13px; }
+
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 20px 16px 32px;
+}
+
+@media (max-width: 480px) {
+  .show-name { width: 100%; }
+}

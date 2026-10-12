@@ -1,0 +1,94 @@
+{
+  "updated_at": "2026-10-12T20:14:14+08:00",
+  "shows": [
+    {
+      "name": "青与碧",
+      "jp_name": "青と碧",
+      "status": "onair",
+      "platform": "Lemino（独占先行）",
+      "air_day": "周一",
+      "air_time": "10:00",
+      "time_note": "上午更新",
+      "episode_total": 10,
+      "source": "https://www.tvguide.or.jp/dramaguide/00003323/"
+    },
+    {
+      "name": "阳角集团的芹泽",
+      "jp_name": "陽キャ集団にいる芹沢は、俺の前だと様子がおかしい",
+      "status": "ended",
+      "platform": "読売テレビ ドラマDiVE",
+      "air_day": "周一",
+      "air_time": "深夜1:29",
+      "time_note": "周二凌晨 / TVer・FOD 配信",
+      "episode_total": 8,
+      "source": "https://www.ytv.co.jp/youkya_shudan/"
+    },
+    {
+      "name": "第二次恋爱才完美 第二季",
+      "jp_name": "恋をするなら二度目が上等 season2",
+      "status": "onair",
+      "platform": "MBS / TBS Dramaism",
+      "air_day": "周二",
+      "air_time": "深夜0:59",
+      "time_note": "周三凌晨（MBS）／TBS 深夜1:26",
+      "episode_total": 10,
+      "source": "https://www.mbs.jp/koi_nido2/"
+    },
+    {
+      "name": "杀死你的旅程 第二部",
+      "jp_name": "あなたを殺す旅 Season2",
+      "status": "onair",
+      "platform": "FOD（独占配信）",
+      "air_day": "周四",
+      "air_time": "20:00",
+      "time_note": "每周四晚更新，首日连播2话",
+      "episode_total": 6,
+      "source": "https://news.fod.fujitv.co.jp/article/14480"
+    },
+    {
+      "name": "相逢骤雨中 第二部",
+      "jp_name": "ふったらどしゃぶり メロウレイン",
+      "status": "upcoming",
+      "platform": "MBS / tvk",
+      "air_day": "周四",
+      "air_time": "深夜0:59",
+      "time_note": "11月5日起开播，周五凌晨",
+      "episode_total": 7,
+      "source": "https://www.dramabl.com/drama/when-it-rains-it-pours-mellow-rain/"
+    },
+    {
+      "name": "修学旅行分到了合不来的小组",
+      "jp_name": "修学旅行で仲良くないグループに入りました2",
+      "status": "upcoming",
+      "platform": "ABCテレビ",
+      "air_day": "周六",
+      "air_time": "深夜1:00",
+      "time_note": "10月17日起开播，周日凌晨／TVer・ABEMA・FOD",
+      "episode_total": 10,
+      "source": "https://www.asahi.co.jp/schooltrip/"
+    }
+  ],
+  "news": [
+    {
+      "date": "2026-10-08",
+      "type": "new_show",
+      "title": "《杀死你的旅程 Season2》开播",
+      "detail": "FOD 独占配信，10月8日（周四）20:00 起，首日连播第1・2话，之后每周四更新。全6话。",
+      "source": "https://news.fod.fujitv.co.jp/article/14480"
+    },
+    {
+      "date": "2026-10-05",
+      "type": "new_show",
+      "title": "《青与碧》开播",
+      "detail": "Lemino 独占先行配信，10月5日起每周一 10:00 更新。全10话。",
+      "source": "https://www.tvguide.or.jp/dramaguide/00003323/"
+    },
+    {
+      "date": "2026-09-01",
+      "type": "new_show",
+      "title": "《第二次恋爱才完美 第二季》开播",
+      "detail": "MBS/TBS Dramaism，9月1日起每周二深夜播出。全10话。",
+      "source": "https://www.mbs.jp/koi_nido2/"
+    }
+  ]
+}
