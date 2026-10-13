@@ -264,6 +264,68 @@ function closeModal() {
   if (modalEl) modalEl.classList.remove("open");
 }
 
+// ---- 首页搜索(评分 + 待看) ----
+function initSearch() {
+  const input = document.getElementById("search-input");
+  const box = document.getElementById("search-results");
+  if (!input || !box) return;
+
+  let index = [];
+  const norm = (s) => String(s ?? "").toLowerCase();
+
+  Promise.all([
+    fetch("reviews.json").then((r) => r.json()).then((d) => (d.reviews || []).map((x) => ({ ...x, _mode: "review" }))),
+    fetch("watchlist.json").then((r) => r.json()).then((d) => (d.watchlist || []).map((x) => ({ ...x, _mode: "watchlist" }))),
+  ])
+    .then(([a, b]) => { index = [...a, ...b]; })
+    .catch(() => { index = []; });
+
+  const matches = (item, q) => {
+    const hay = [item.name, item.jp_name, item.cast].map(norm).join(" ");
+    return q.split(/\s+/).every((k) => k && hay.includes(k));
+  };
+
+  function render(q) {
+    const k = norm(q.trim());
+    if (!k) { box.innerHTML = ""; box.classList.remove("open"); return; }
+    const hits = index.filter((it) => matches(it, k));
+    if (!hits.length) {
+      box.innerHTML = `<div class="search-empty">没有找到「${escapeHtml(q)}」</div>`;
+      box.classList.add("open");
+      return;
+    }
+    box.innerHTML = hits.map((it, i) => {
+      const img = posterUrl(it.poster);
+      const tag = it._mode === "review" ? "评分" : "待看";
+      return `
+        <button class="search-item" data-i="${i}">
+          ${img ? `<img class="search-thumb" src="${escapeHtml(img)}" alt="" loading="lazy" />` : ""}
+          <div class="search-info">
+            <div class="search-name">${escapeHtml(it.name)}</div>
+            <div class="search-sub">${escapeHtml(it.cast || it.jp_name || "")}</div>
+          </div>
+          <span class="search-badge">${tag}</span>
+        </button>`;
+    }).join("");
+    box.classList.add("open");
+    box.querySelectorAll(".search-item").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const it = hits[Number(btn.dataset.i)];
+        openModal(it, it._mode);
+        input.value = "";
+        box.innerHTML = "";
+        box.classList.remove("open");
+      });
+    });
+  }
+
+  let timer = null;
+  input.addEventListener("input", () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => render(input.value), 250);
+  });
+}
+
 // ---- 加载 ----
 function loadJSON(path, onOk) {
   fetch(path)
@@ -280,6 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
   if (page === "home") {
     loadJSON("data.json", (d) => renderCarousel(d.shows || []));
+    initSearch();
   } else if (page === "schedule") {
     loadJSON("data.json", (d) => {
       const onair = (d.shows || []).filter((s) => s.status === "onair");
