@@ -171,6 +171,8 @@ function renderReviews(reviews) {
   const sorted = [...reviews].sort((a, b) => (b.rating || 0) - (a.rating || 0));
   const grid = document.getElementById("reviews");
   if (!grid) return;
+  const cnt = document.getElementById("count");
+  if (cnt) cnt.textContent = "共 " + sorted.length + " 部";
   if (!sorted.length) {
     grid.innerHTML = `<div class="card"><span class="show-meta">暂无评分</span></div>`;
     return;
@@ -197,6 +199,8 @@ function renderWatchlist(list) {
   const sorted = [...list].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
   const grid = document.getElementById("watchlist");
   if (!grid) return;
+  const cnt = document.getElementById("count");
+  if (cnt) cnt.textContent = "共 " + sorted.length + " 部";
   if (!sorted.length) {
     grid.innerHTML = `<div class="card"><span class="show-meta">暂无待看</span></div>`;
     return;
