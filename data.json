@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-17T17:28:18+08:00",
+  "updated_at": "2026-10-18T01:33:54+08:00",
   "shows": [
     {
       "name": "青与碧",
@@ -23,26 +23,12 @@
       "platform": "読売テレビ ドラマDiVE+",
       "air_day": "周二",
       "air_time": "凌晨1:29",
-      "time_note": "周二凌晨1:29 · 番外待播",
+      "time_note": "周二凌晨1:29 · 番外 10/20 播出后完结",
       "episode_total": 10,
       "poster": "/536fDgEVGzV1NpXd2gVqY0SL0ko.jpg",
       "tmdb_id": 325294,
       "cast": "小泉光咲 × 四坂亮翔",
       "source": "https://www.tvguide.or.jp/dramaguide/00003223/"
-    },
-    {
-      "name": "第二次恋爱才完美 第二季",
-      "jp_name": "恋をするなら二度目が上等 season2",
-      "type": "tv",
-      "status": "onair",
-      "platform": "MBS / TBS Dramaism",
-      "air_day": "周三",
-      "air_time": "凌晨0:59",
-      "time_note": "周三凌晨 0:59（MBS）／1:26（TBS）",
-      "episode_total": 10,
-      "poster": "/mtsrKHSzkHDiNpd8jQf5IBUTs3j.jpg",
-      "tmdb_id": 246482,
-      "source": "https://www.mbs.jp/koi_nido2/"
     },
     {
       "name": "杀死你的旅程 第二部",
@@ -76,15 +62,16 @@
       "name": "修学旅行分到了合不来的小组",
       "jp_name": "修学旅行で仲良くないグループに入りました2",
       "type": "tv",
-      "status": "upcoming",
+      "status": "onair",
       "platform": "ABCテレビ",
       "air_day": "周六",
       "air_time": "深夜1:00",
-      "time_note": "10月17日起开播，周日凌晨／TVer・ABEMA・FOD",
+      "time_note": "周日凌晨 1:00 · TVer／ABEMA／FOD",
       "episode_total": 10,
       "poster": "/okkXnhAXcPz6DawCtV33gghJrK6.jpg",
       "tmdb_id": 297710,
-      "source": "https://www.asahi.co.jp/schooltrip/"
+      "source": "https://www.asahi.co.jp/schooltrip/",
+      "cast": "藤本洸大 × 簡秀吉"
     },
     {
       "name": "営業ですから",
