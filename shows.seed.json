@@ -30,6 +30,21 @@
       "source": "https://www.tvguide.or.jp/dramaguide/00003223/"
     },
     {
+      "name": "你先亲我",
+      "jp_name": "お前のほうからキスしてくれよ",
+      "type": "tv",
+      "status": "onair",
+      "platform": "フジテレビ / FOD（独占見放題）",
+      "air_day": "周二",
+      "air_time": "凌晨0:45",
+      "time_note": "周二凌晨0:45（首回1:00）· FOD独占見放題／TVer一周見逃",
+      "episode_total": 8,
+      "poster": "/kJq9ofgNaZjvqspKpBeLEsNnsT.jpg",
+      "tmdb_id": 330370,
+      "cast": "鈴木仁 × 押田岳",
+      "source": "https://thetv.jp/program/0001078465/"
+    },
+    {
       "name": "杀死你的旅程 第二部",
       "jp_name": "あなたを殺す旅 Season2",
       "type": "tv",
