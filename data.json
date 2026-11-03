@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02T18:01:47+08:00",
+  "updated_at": "2026-11-03T11:38:09+08:00",
   "shows": [
     {
       "name": "青与碧",
@@ -31,6 +31,21 @@
       "source": "https://thetv.jp/program/0001078465/"
     },
     {
+      "name": "恋爱的正确标记法 第二季",
+      "jp_name": "恋愛ルビの正しいふりかた シーズン2",
+      "type": "tv",
+      "status": "onair",
+      "platform": "TOKYO MX1",
+      "air_day": "周四",
+      "air_time": "21:25",
+      "time_note": "每周四 21:25 · TVer／FOD见逃配信",
+      "episode_total": 6,
+      "poster": "/5MzQlMrgoeIKO34IfjnOUNiQZrl.jpg",
+      "tmdb_id": 293581,
+      "cast": "岩橋玄樹 × 相馬理",
+      "source": "https://thetv.jp/program/0001078460/"
+    },
+    {
       "name": "杀死你的旅程 第二部",
       "jp_name": "あなたを殺す旅 Season2",
       "type": "tv",
@@ -56,6 +71,7 @@
       "episode_total": 7,
       "poster": "/81TDZUAxUiCP8Z5b9zPK0Ed11jq.jpg",
       "tmdb_id": 279412,
+      "cast": "伊藤あさひ × 武藤潤",
       "source": "https://www.dramabl.com/drama/when-it-rains-it-pours-mellow-rain/"
     },
     {
