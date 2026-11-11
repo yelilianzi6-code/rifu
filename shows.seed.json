@@ -48,11 +48,11 @@
       "name": "杀死你的旅程 第二部",
       "jp_name": "あなたを殺す旅 Season2",
       "type": "tv",
-      "status": "onair",
+      "status": "ended",
       "platform": "FOD（独占配信）",
       "air_day": "周四",
       "air_time": "20:00",
-      "time_note": "每周四晚更新，首日连播2话",
+      "time_note": "11月5日完结（全6话）",
       "episode_total": 6,
       "poster": "/faeDVBOqT3xGu1gUTx7RPp00L7j.jpg",
       "tmdb_id": 298931,
@@ -115,6 +115,20 @@
       "tmdb_id": 1785664,
       "cast": "鈴木伸之 × 柏木悠",
       "source": ""
+    },
+    {
+      "name": "剧场版 40岁前想做的10件事",
+      "jp_name": "劇場版 40までにしたい10のこと",
+      "type": "movie",
+      "status": "upcoming",
+      "platform": "剧场（全国公开）",
+      "release_date": "2027-01-22",
+      "time_note": "2027年1月22日全国上映",
+      "episode_total": null,
+      "poster": "/5AXJPqBetQgYhD2vz4rgTxqP4O1.jpg",
+      "tmdb_id": 1774278,
+      "cast": "風間俊介 × 庄司浩平",
+      "source": "https://libre-inc.co.jp/news/detail.php?news_id=3692"
     }
   ],
   "news": []
