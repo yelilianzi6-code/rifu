@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-16T00:16:42+08:00",
+  "updated_at": "2026-11-16T00:17:58+08:00",
   "shows": [
     {
       "name": "青与碧",
@@ -13,6 +13,7 @@
       "episode_total": 10,
       "poster": "/9qtKSQJkIfI707YYF4NebGK12Oo.jpg",
       "tmdb_id": 333121,
+      "cast": "草川直弥 × 知念英和",
       "source": "https://www.tvguide.or.jp/dramaguide/00003323/"
     },
     {
@@ -130,6 +131,18 @@
       "tmdb_id": 1774278,
       "cast": "風間俊介 × 庄司浩平",
       "source": "https://libre-inc.co.jp/news/detail.php?news_id=3692"
+    },
+    {
+      "name": "Yes还是No 一半一半",
+      "jp_name": "イエスかノーか半分か",
+      "type": "tv",
+      "status": "upcoming",
+      "platform": "読売テレビ / BS12 トゥエルビ",
+      "time_note": "2027年1月开播（具体日未定）",
+      "poster": "/xJhN5FAmLr4iCBFChPtdMk9IIKa.jpg",
+      "tmdb_id": 341810,
+      "cast": "冬野心央 × 夏生大湖",
+      "source": "https://www.stardust.co.jp/news/item-61304/"
     }
   ],
   "news": []
